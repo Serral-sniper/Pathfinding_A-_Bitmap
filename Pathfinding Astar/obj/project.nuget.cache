@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kA+mwcags+LgjyiGn11NmwutJoWckQOyimgNbgo9mnjgiAUj9NBiqjDjUIB86mFwDfTeYEDy56IjxkVBJokn5A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Utilisateur\\Documents\\Pathfinding Astar\\Pathfinding Astar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Utilisateur\\.nuget\\packages\\system.drawing.common\\8.0.3\\system.drawing.common.8.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
