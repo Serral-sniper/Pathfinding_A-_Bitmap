@@ -17,3 +17,5 @@ C:\Users\Utilisateur\Documents\Pathfinding Astar\obj\Debug\net8.0\refint\Pathfin
 C:\Users\Utilisateur\Documents\Pathfinding Astar\obj\Debug\net8.0\Pathfinding Astar.pdb
 C:\Users\Utilisateur\Documents\Pathfinding Astar\obj\Debug\net8.0\Pathfinding Astar.genruntimeconfig.cache
 C:\Users\Utilisateur\Documents\Pathfinding Astar\obj\Debug\net8.0\ref\Pathfinding Astar.dll
+C:\Users\Utilisateur\Documents\Pathfinding Astar\bin\Debug\net8.0\Microsoft.Bcl.HashCode.dll
+C:\Users\Utilisateur\Documents\Pathfinding Astar\bin\Debug\net8.0\SuperLinq.dll

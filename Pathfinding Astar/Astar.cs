@@ -8,9 +8,9 @@ namespace Pathfinding_Astar
 {
     class Astar
     {
-        private Bitmap image;
+        private char[,] image;
         private ulong calculs = 0;
-        private static int _Size = 100;
+        private static int _Size = MapModel._Size;
         // Changement : Utilisation de SortedSet au lieu de List pour OpenSet
         // Raison : Permet une insertion et une extraction plus rapides du nœud avec le coût F le plus bas (O(log n) au lieu de O(n))
         private SortedSet<Node> OpenSet;
@@ -32,7 +32,7 @@ namespace Pathfinding_Astar
             }
         }
 
-        public Astar(Bitmap image)
+        public Astar(char[,] image)
         {
             this.image = image;
             // Initialisation de OpenSet avec un comparateur personnalisé pour trier par coût F
@@ -58,13 +58,12 @@ namespace Pathfinding_Astar
                 _Current = OpenSet.Min;
                 OpenSet.Remove(_Current);
 
-                image.SetPixel(_Current._X, _Current._Y, Color.Red);
+                image[_Current._X, _Current._Y] = 'V';
                 ClosedNodes.Add((_Current._X, _Current._Y));
 
                 if ((_Current._X, _Current._Y) == MapModel._End)
                 {
                     ReconstructPath();
-                    image.Save(@"C:\Users\Utilisateur\Documents\Pathfinding Astar\SavedPath.bmp");
                     break;
                 }
 
@@ -79,7 +78,7 @@ namespace Pathfinding_Astar
                             int newY = _Current._Y + j;
                             if (MapModel.IsTraversable(image, newX, newY) && !ClosedNodes.Contains((newX, newY)))
                             {
-                                image.SetPixel(newX, newY, Color.Green);
+                                image[newX, newY] = 'N';
                                 // Changement : Utilisation d'une nouvelle méthode ProcessNeighbor
                                 // Raison : Combine les fonctionnalités de GCostCalculate et NeighbourChecking en une seule méthode plus efficace
                                 ProcessNeighbor(newX, newY);
@@ -96,9 +95,9 @@ namespace Pathfinding_Astar
             _StopWatch.Stop();
             Console.WriteLine("Nodes calculé : " + calculs);
             Console.WriteLine("Temps du chemin : " + _StopWatch.ElapsedMilliseconds + " ms");
-            image.SetPixel(MapModel._Departure.x, MapModel._Departure.y, Color.Blue);
-            image.SetPixel(MapModel._End.x, MapModel._End.y, Color.Blue);
-            image.Save(@"C:\Users\Utilisateur\Documents\Pathfinding Astar\SavedPath.bmp");
+            Console.WriteLine("Taille de la cart en Pixels : " + _Size + "*" + _Size);
+            MapModel.GenerateBMP();
+
         }
 
         // Nouvelle méthode : ProcessNeighbor
@@ -141,11 +140,9 @@ namespace Pathfinding_Astar
             isWay = true;
             while ((_Current._X, _Current._Y) != MapModel._Departure)
             {
-                image.SetPixel(_Current._X, _Current._Y, Color.Yellow);
+                image[_Current._X, _Current._Y] = 'P';
                 _Current = _Current._Parent;
             }
-            image.SetPixel(MapModel._Departure.x, MapModel._Departure.y, Color.DeepSkyBlue);
-            image.SetPixel(MapModel._End.x, MapModel._End.y, Color.DeepSkyBlue);
         }
     }
 }
