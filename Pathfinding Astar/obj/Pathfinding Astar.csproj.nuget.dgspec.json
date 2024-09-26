@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "SuperLinq": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[8.0.3, )"

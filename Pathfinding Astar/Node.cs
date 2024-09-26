@@ -1,6 +1,8 @@
-﻿namespace Pathfinding_Astar
+﻿
+
+namespace Pathfinding_Astar
 {
-    class Node
+    class Node : IEquatable<Node>
     {
         // Coordonnée X du nœud
         public int _X { get; private set; }
@@ -22,5 +24,10 @@
             _FCost = double.MaxValue;
             _Parent = this;
         }
+        public Node() { }
+
+        public bool Equals(Node? other) => _X == other?._X && _Y == other._Y;
+        
+        
     }
 }

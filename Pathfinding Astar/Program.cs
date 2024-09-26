@@ -1,5 +1,4 @@
 ﻿using Pathfinding_Astar;
-using System.Drawing;
 int wall = 0;
 bool OK = false;
 try
